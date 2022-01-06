@@ -31,7 +31,7 @@ function draw() {
 print(k)
 	}
 	noLoop()
-	save("myfriend")
+//	save("myfriend")
 
 }
 
@@ -163,7 +163,7 @@ vertex(x, y)
 			y = y + y_step+int(random(0,1))
 
 
-			circle(x,y,3)
+			//circle(x,y,3) commmmmmmeeent
 		}
 
 		endShape()
