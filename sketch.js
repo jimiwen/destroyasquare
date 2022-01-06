@@ -31,7 +31,7 @@ function draw() {
 print(k)
 	}
 	noLoop()
-	save("myfriend")
+	//save("myfriend")
 
 }
 
