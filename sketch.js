@@ -10,11 +10,12 @@ function setup() {
 	top_y = int(height * -0.5)
 	bottom_y = int(height * 1.5)
 	resolution = int(width * 0.01)
+	//angleMode(DEGREES);
 	//	print('resolution'+ resolution)
 
 
-	num_columns = 3*int((right_x - left_x) / resolution)
-	num_rows = 3*int((bottom_y - top_y) / resolution)
+	num_columns = 1*int((right_x - left_x) / resolution)
+	num_rows = 1*int((bottom_y - top_y) / resolution)
 	//	print('num_columns'+ num_columns)
 	//	print('num_rows'+ num_rows)
 
@@ -28,6 +29,7 @@ function draw() {
 	// rect(0,0,1199,1199)
 	fill(255)
 	rect(100,100,1000,1000)
+
 	//put drawing code here
 
 	// for (let k=0;k<80;k++){
@@ -35,15 +37,47 @@ function draw() {
 	// 	carve()
 	// //print(k)
 	// }
-	let	x = 100+random(-200,200)
-	let y = 100+random(-200,200)
-	let shapesize=random(230,400);
+	let	x = 200//+random(-200,600)
+	let y = 200//+random(-200,600)
+	let shapesize=random(230,300);
 
 
 
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize,1)
-//	carve2(x,y,shapesize)
+		// //bubble pad
+		// ccc=500
+		// carve2(x,y+200,shapesize,-ccc,400,0)
+		// carve2(x+200,y+200,shapesize,ccc,0,0)
+		// carve2(x+400,y+200,shapesize,ccc,0,0)
+    // carve2(x+400,y+200,shapesize,-ccc,0,0)
+
+
+//tower
+	// 	ccc=-800
+	// carve2(x+20,y+140,shapesize,ccc,200-100,-450)
+	// carve2(x+20,y+140,shapesize,-ccc,200-100,-450)
+	// carve2(x+20,y+140,shapesize,ccc,200-100,-150)
+	// carve2(x+20,y+140,shapesize,-ccc,200-100,-150)
+	// carve2(x+20,y+140,shapesize,ccc,200-100,150)
+	// carve2(x+20,y+140,shapesize,-ccc,200-100,150)
+
+//church
+// ccc=3000
+// carve2(x+200,y+200,shapesize,-ccc,400,0)
+// 		carve2(x+200,y+200,shapesize,-ccc,200,0)
+// 		carve2(x+200,y+200,shapesize,-ccc,0,0)
+// 			carve2(x+200,y+200,shapesize,ccc,400,0)
+// 		 carve2(x+200,y+200,shapesize,ccc,400,-200)
+
+
+//
+
+//ring
+    ccc=1250
+		carve2(x+80,y+190,shapesize,-ccc,300+340,-300)
+		ccc=1300
+		carve2(x+180,y+100,shapesize,ccc+1000,550,-200)
+
+
 
 
 
@@ -52,7 +86,7 @@ function draw() {
 
 }
 
-function carve(){
+function carve(x,y,shapesize){
 
 	// let	x = 100
 	// let y = 100
@@ -93,8 +127,8 @@ function carve(){
 
 	//print("angle"+m[100][100])
 
-	let	x = 100+random(-100,1000)
-	let y = 100+random(-100,1000)
+	// let	x = 100+random(-100,1000)
+	// let y = 100+random(-100,1000)
 	let num_steps=100
 
 	strokeWeight(0.1)
@@ -116,7 +150,7 @@ function carve(){
 	//vertex(1100,1300)
 	beginShape()
 	let dice2=random(0,1)
-	let shapesize=random(30,700);
+//	let shapesize=random(30,700);
 	let stepsize=random(0.1,0.5);
 	stroke(255)
 	for (k=0;k<50+random(1050,35000);k+=1+random(0,3)) {
@@ -191,7 +225,7 @@ function carve(){
 }
 
 
-function carve2(x,y,shapesize,wiggle){
+function carve2(x,y,shapesize,centerpoint,xshift,yshift){
 
 
 
@@ -200,38 +234,21 @@ function carve2(x,y,shapesize,wiggle){
 	let Array2D = (r,c) => [...Array(r)].map(x=>Array(c).fill(0));
 	let m = Array2D(num_columns,num_rows);
 
-	//print("m length "+m.length)
-	if (random(0,1)>0.5){
-		gain=int(random(1.1,3.1));
-	}
-	else{
-		gain=int(random(-3.1,-1.1));
-	}
 
-	bend=random(0.2,0.3);
-	offset=random(0,num_rows)
-	if (random(0,1)<0.99) {
 		quantum=1;
-		for (let column=0; column<num_columns; column++) {
-			for (row=0; row<num_rows; row++) {
 
-				angle = (quantum*(row-offset-gain*bend*column) / (num_rows*bend))/quantum * PI*gain
-				// print('angle'+angle)
+
+		for (let column=0; column<num_columns; column++) {
+			for (let row=0; row<num_rows; row++) {
+
+        unvec=[(centerpoint-row),(column-centerpoint)]
+				angle = random(0.000001,0.00002)+atan2(-unvec[0],unvec[1])*180/PI;
+//print(unvec)
+//angle=PI/4
 				m[column][row] = angle
 			}
 		}
-	}
-	else{
-		quantum=random(2,3);
-		for (let column=0; column<num_columns; column++) {
-			for (row=0; row<num_rows; row++) {
 
-				angle = int(quantum*((row-offset-gain*bend*column) / (num_rows*bend))/quantum) * PI*gain
-				// print('angle'+angle)
-				m[column][row] = angle
-			}
-		}
-	}
 
 	//print("angle"+m[100][100])
 
@@ -239,25 +256,6 @@ function carve2(x,y,shapesize,wiggle){
 	// let y = 100+random(-100,1000)
 	let num_steps=100
 
-	// strokeWeight(0.1)
-	// dice=random(0,1)
-	// if (dice<0.95){
-	// 	noFill()
-	// 	stroke(255)
-	// }
-	// else if (dice>0.995){
-	// 	fill(255)
-	// noStroke();
-	// }
-	// else {
-	// 	 fill(0)
-	// 	stroke(255)
-	// }
-
-	//vertex(100,100)
-	//vertex(1100,1300)
-
-//	let dice2=random(0,1)
 	let stepsize=random(0.1,0.5);
 //	print("dice2=  "+dice2)
 	let curvelength=random(31050,35000);
@@ -268,65 +266,63 @@ function carve2(x,y,shapesize,wiggle){
  let bl=0
  let br=0
  let centrepoint =900
- xtemp=x;
- ytemp=y;
-
-
-	for (k=0;k<50+curvelength;k+=1+random(0,3)) {
-		strokeWeight(0.1+random(0,0.5))
-
-
-		x_offset = xtemp - left_x
-		y_offset = ytemp - top_y
-
-		if (x_offset<1800 && y_offset< 1800 && x_offset>0 && y_offset>0  ) {
-			column_index = int(x_offset / resolution)
-			row_index = int(y_offset / resolution)
-			//	print(column_index,row_index)
-			// NOTE: normally you want to check the bounds here
-			grid_angle = m[column_index][row_index]
-			x_step = stepsize*resolution * cos(grid_angle)
-			y_step = stepsize*resolution * sin(grid_angle)
-			//
-			//pop()
-			xtemp = xtemp + x_step+int(random(0,1));
-			ytemp = ytemp + y_step+int(random(0,1));
-//      print(xtemp,ytemp)
-      if (xtemp < centrepoint && ytemp < centrepoint){
-				tl=tl+1;
-			}
-			else if (xtemp < centrepoint && ytemp > centrepoint){
-				bl=bl+1;
-			}
-			else if (xtemp > centrepoint && ytemp < centrepoint) {
-				tr=tr+1;
-			}
-			else{
-				br=br+1;
-			}
-		}
-	}
-print("tl= "+tl)
-print("tr= "+tr)
-print("bl= "+bl)
-print("br= "+br)
-
-
-
-
-shiftX=wiggle*600*(tl-tr+bl-br)/(tl+tr+bl+br);
-shiftY=wiggle*600*(tl+tr-bl-br)/(tl+tr+bl+br);
-print(shiftX,shiftY)
-print(x,y)
-x=x+shiftX;
-y=y+shiftY;
-print(x,y)
+//  xtemp=x;
+//  ytemp=y;
+//
+//
+// 	for (k=0;k<50+curvelength;k+=1+random(0,3)) {
+// 		strokeWeight(0.1+random(0,0.5))
+//
+//
+// 		x_offset = xtemp - left_x
+// 		y_offset = ytemp - top_y
+//
+// 		if (x_offset<1800 && y_offset< 1800 && x_offset>0 && y_offset>0  ) {
+// 			column_index = int(x_offset / resolution)
+// 			row_index = int(y_offset / resolution)
+// 			//	print(column_index,row_index)
+// 			// NOTE: normally you want to check the bounds here
+// 			grid_angle = m[column_index][row_index]
+// 			x_step = stepsize*resolution * cos(grid_angle)
+// 			y_step = stepsize*resolution * sin(grid_angle)
+// 			//
+// 			//pop()
+// 			xtemp = xtemp + x_step+int(random(0,1));
+// 			ytemp = ytemp + y_step+int(random(0,1));
+// //      print(xtemp,ytemp)
+//       if (xtemp < centrepoint && ytemp < centrepoint){
+// 				tl=tl+1;
+// 			}
+// 			else if (xtemp < centrepoint && ytemp > centrepoint){
+// 				bl=bl+1;
+// 			}
+// 			else if (xtemp > centrepoint && ytemp < centrepoint) {
+// 				tr=tr+1;
+// 			}
+// 			else{
+// 				br=br+1;
+// 			}
+// 		}
+// 	}
+// print("tl= "+tl)
+// print("tr= "+tr)
+// print("bl= "+bl)
+// print("br= "+br)
+//
+//
+//
+//
+// shiftX=wiggle*600*(tl-tr+bl-br)/(tl+tr+bl+br);
+// shiftY=wiggle*600*(tl+tr-bl-br)/(tl+tr+bl+br);
+// print(shiftX,shiftY)
+// print(x,y)
+// x=x+shiftX;
+// y=y+shiftY;
+// print(x,y)
 
 	//draw
 	for (k=0;k<50+curvelength;k+=1+random(0,3)) {
 		strokeWeight(0.1+random(0,0.5))
-
-
 		x_offset = x - left_x
 		y_offset = y - top_y
 		if (x_offset<1800 && y_offset< 1800 && x_offset>0 && y_offset>0  ) {
@@ -344,7 +340,7 @@ print(x,y)
 			stroke(0)
 			noFill()
 			//	ellipse(x,y,shapesize,shapesize)
-			rect(x,y,shapesize,random(1,1)*shapesize)
+			rect(x+xshift,y+yshift,shapesize,random(1,1)*shapesize)
 
 			//
 			//pop()
@@ -358,5 +354,5 @@ print(x,y)
 
 
 	}
-	return x,y,shapesize;
+//	return x,y,shapesize;
 }
