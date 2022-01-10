@@ -43,40 +43,35 @@ function draw() {
 
 
 
-		// //bubble pad
-		// ccc=500
-		// carve2(x,y+200,shapesize,-ccc,400,0)
-		// carve2(x+200,y+200,shapesize,ccc,0,0)
-		// carve2(x+400,y+200,shapesize,ccc,0,0)
-    // carve2(x+400,y+200,shapesize,-ccc,0,0)
+// 		//bubble pad
+// 		ccc=500
+// 		carve2(x,y+200,shapesize,-ccc,400,0)
+// 		carve2(x+200,y+200,shapesize,ccc,0,0)
+// 		carve2(x+400,y+200,shapesize,ccc,0,0)
+//     carve2(x+400,y+200,shapesize,-ccc,0,0)
+// save("bubblepad")
 
-
-//tower
-	// 	ccc=-800
-	// carve2(x+20,y+140,shapesize,ccc,200-100,-450)
-	// carve2(x+20,y+140,shapesize,-ccc,200-100,-450)
-	// carve2(x+20,y+140,shapesize,ccc,200-100,-150)
-	// carve2(x+20,y+140,shapesize,-ccc,200-100,-150)
-	// carve2(x+20,y+140,shapesize,ccc,200-100,150)
-	// carve2(x+20,y+140,shapesize,-ccc,200-100,150)
-
-//church
-// ccc=3000
-// carve2(x+200,y+200,shapesize,-ccc,400,0)
-// 		carve2(x+200,y+200,shapesize,-ccc,200,0)
-// 		carve2(x+200,y+200,shapesize,-ccc,0,0)
-// 			carve2(x+200,y+200,shapesize,ccc,400,0)
-// 		 carve2(x+200,y+200,shapesize,ccc,400,-200)
-
-
+// //tower
+// 		ccc=-800
+// 	carve2(x+20,y+140,shapesize,ccc,200-100,-450)
+// 	carve2(x+20,y+140,shapesize,-ccc,200-100,-450)
+// 	carve2(x+20,y+140,shapesize,ccc,200-100,-150)
+// 	carve2(x+20,y+140,shapesize,-ccc,200-100,-150)
+// 	carve2(x+20,y+140,shapesize,ccc,200-100,150)
+// 	carve2(x+20,y+140,shapesize,-ccc,200-100,150)
+// save("tower")
 //
-
-//ring
+//church
+ccc=-300
+carve2(x+120,y+200,shapesize,-ccc,-300,-300)
+ccc=300
+carve2(x+220,y+200,shapesize,-ccc,0,100)
+			carve2(x+200,y+200,shapesize,ccc,200+400,200)
     ccc=1250
 		carve2(x+80,y+190,shapesize,-ccc,300+340,-300)
-		ccc=1300
+		ccc=700
 		carve2(x+180,y+100,shapesize,ccc+1000,550,-200)
-
+//save("ring")
 
 
 
