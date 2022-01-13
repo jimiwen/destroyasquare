@@ -1,6 +1,13 @@
+let xx;
+
+function preload(){
+	xx=loadImage('packingcircles.png')
+}
+
 function setup() {
 	let width =1200
 	let height = 1200
+	frameRate(16)
 	createCanvas(width, height);
 	// put setup code here
 	left_x = int(width * -0.5)
@@ -17,22 +24,72 @@ function setup() {
 	//	print('num_rows'+ num_rows)
 
 
+  x_start=120*int(random(1,4));
+	note_change=0;
 
 }
 
 function draw() {
-	background(255)
-	 fill(255)
-	  rect(100,100,1000,1000)
-	 // put drawing code here
-	for (let k=1;k<80;k++){
 
-		carve()
-print(k)
+	// background(255)
+	// fill(255)
+	// rect(100,100,1000,1000)
+	// // put drawing code here
+	// for (let k=1;k<30;k++){
+	//
+	// 	carve()
+	// 	print(k)
+	// }
+
+  image(xx,0,0,width,height)
+
+	fill(0)
+if (note_change==1){
+	rect(0,0,x_start,1200);
+	rect(x_start+120,0,1200,1200);
+} else{
+	x_halfnote=120*int(random(1,3));
+	rect(0,0,x_start,1200);
+	stroke(255)
+	//circle(x_start+60,600,30)
+	noStroke()
+	rect(x_start+120,0,x_halfnote,1200);
+	stroke(255)
+	//circle(x_start+120+x_halfnote+60,300,50)
+	noStroke()
+	rect(x_start+240+x_halfnote,0,1200,1200);
+	let leftEdge =int(x_start+240+x_halfnote);
+}
+
+//x_start=random(100,600);
+// x_halfnote=random(10,600);
+// rect(0,0,x_start,1200);
+// stroke(255)
+// //circle(x_start+60,600,30)
+// noStroke()
+// rect(x_start+120,0,x_halfnote,1200);
+// stroke(255)
+// //circle(x_start+120+x_halfnote+60,300,50)
+// noStroke()
+// rect(x_start+240+x_halfnote,0,1200,1200);
+// let leftEdge =int(x_start+240+x_halfnote);
+//console.log(x_halfnote)
+
+
+	// rect(0,0,x_start,1200);
+	// rect(x_start+120,0,1200,1200);
+
+
+	if (random(0,1)<0.25){
+		x_start=random(100,1000);
+		note_change=0;
+	} else {
+		x_start=x_start;
+		note_change=1;
 	}
-	noLoop()
-//	save("myfriend")
-
+	console.log(note_change)
+	// 		save("myfriend")
+	// noLoop()
 }
 
 function carve(){
@@ -86,10 +143,10 @@ function carve(){
 	}
 	else if (dice>0.999995){
 		fill(255)
-	noStroke();
+		noStroke();
 	}
 	else {
-		 fill(0)
+		fill(0)
 		stroke(255)
 	}
 
@@ -114,7 +171,7 @@ function carve(){
 			grid_angle = m[column_index][row_index]
 			x_step = stepsize*resolution * cos(grid_angle)
 			y_step = stepsize*resolution * sin(grid_angle)
-		//	vertex(x, y)
+			//	vertex(x, y)
 
 			//draw shapes
 			if (dice2>0.50){
@@ -125,22 +182,22 @@ function carve(){
 			}
 			else if (dice2<0.20 && dice2>0.185){
 				stroke(0)
-			fill(255)
-			//	ellipse(x,y,shapesize,shapesize)
-			rect(x,y,shapesize,shapesize)
-vertex(x, y)
+				fill(255)
+				//	ellipse(x,y,shapesize,shapesize)
+				rect(x,y,shapesize,shapesize)
+				vertex(x, y)
 
 			}
 			else if (dice2<0.30 && dice2>0.265){
 				stroke(255)
-			//	fill(255)
-			fill(0)
-			//	ellipse(x,y,shapesize,shapesize)
-			rect(x,y,shapesize,random(1,1)*shapesize)
+				//	fill(255)
+				fill(0)
+				//	ellipse(x,y,shapesize,shapesize)
+				rect(x,y,shapesize,random(1,1)*shapesize)
 			}
 			else if (dice2<0.32){
 				stroke(255)
-//				fill(0)
+				//				fill(0)
 				noFill()
 
 				vertex(x, y)
@@ -154,7 +211,7 @@ vertex(x, y)
 				noFill()
 				rect(x,y,random(1,1)*shapesize,shapesize)
 
-			//	vertex(x, y)
+				//	vertex(x, y)
 
 			}
 			//
