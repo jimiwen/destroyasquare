@@ -95,13 +95,13 @@ if (note_change==1){
 	// 		save("myfriend")
 
 	console.log(timer)
-	if (timer% int(random(1,3)) ){
-		fill(255)
-		rect(0,0,1200)
 
-	}
 	if (timer% int(random(1,3)) ){
 		fill(0)
+		rect(0,0,1200)
+	}
+	if (timer% int(random(1,3)) ){
+		fill(255)
 		rect(0,0,1200)
 	}
 	timer--
@@ -111,9 +111,9 @@ if (note_change==1){
 		rect(x_start+120,0,1200,1200);
 		noLoop()
 	}
-//noLoop()
+noLoop()
   let seq =500-timer;
-	// save("80800"+seq)
+//	 save("80800"+seq)
 }
 
 function carve(){
