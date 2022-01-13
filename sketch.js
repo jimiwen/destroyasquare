@@ -1,4 +1,6 @@
 let xx;
+let timer;
+let beEnabled;
 
 function preload(){
 	xx=loadImage('packingcircles.png')
@@ -7,7 +9,7 @@ function preload(){
 function setup() {
 	let width =1200
 	let height = 1200
-	frameRate(16)
+	frameRate(8)
 	createCanvas(width, height);
 	// put setup code here
 	left_x = int(width * -0.5)
@@ -26,7 +28,9 @@ function setup() {
 
   x_start=120*int(random(1,4));
 	note_change=0;
-
+  timer=12*16;
+	beEnabled=true;
+//	createLoop({duration:2, gif:true,render:true,open:true,startLoop:0,endLoop:47,download:true,fileName: 'test.gif'})
 }
 
 function draw() {
@@ -81,15 +85,35 @@ if (note_change==1){
 
 
 	if (random(0,1)<0.25){
-		x_start=random(100,1000);
+		x_start=random(1,1000);
 		note_change=0;
 	} else {
 		x_start=x_start;
 		note_change=1;
 	}
-	console.log(note_change)
+
 	// 		save("myfriend")
-	// noLoop()
+
+	console.log(timer)
+	if (timer% int(random(1,3)) ){
+		fill(255)
+		rect(0,0,1200)
+
+	}
+	if (timer% int(random(1,3)) ){
+		fill(0)
+		rect(0,0,1200)
+	}
+	timer--
+	if(timer ==0){
+		image(xx,0,0,width,height)
+		rect(0,0,x_start,1200);
+		rect(x_start+120,0,1200,1200);
+		noLoop()
+	}
+//noLoop()
+  let seq =500-timer;
+	// save("80800"+seq)
 }
 
 function carve(){
