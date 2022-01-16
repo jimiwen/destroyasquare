@@ -30,19 +30,19 @@ function draw() {
 	rect(100,100,1000,1000)
 	//put drawing code here
 
-	// for (let k=0;k<80;k++){
-	//
-	// 	carve()
-	// //print(k)
-	// }
+	for (let k=0;k<80;k++){
+
+		carve()
+	//print(k)
+	}
 	let	x = 100+random(-200,200)
 	let y = 100+random(-200,200)
 	let shapesize=random(230,400);
 
 
 
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize,1)
+//	carve2(x,y,shapesize,1)
+//	carve2(x,y,shapesize,1)
 //	carve2(x,y,shapesize)
 
 
