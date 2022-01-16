@@ -19,14 +19,36 @@ function setup() {
 	//	print('num_rows'+ num_rows)
 
 
+// coloring={
+// 	color1: '#bfb8c2',
+// 	color2: '#d0dbd8',
+// 	color3: '#c2740c',
+// }
+//
+// coloring2={
+// 	color1:'#514059',
+// 	color2:'#474059',
+// 	color3:'#404759'
+// }
+coloring={
+	color1: '#232926',
+	color2: '#2d3c66',
+	color3: '#a3848c',
+}
+
+coloring2={
+	color1:'#a3848c',
+	color2:'#a3848c',
+	color3:'#a3848c'
+}
 
 }
 
 function draw() {
-	background(255)
+	background(random([coloring.color1,coloring.color2,coloring.color3]))
 	// fill(0)
 	// rect(0,0,1199,1199)
-	fill(255)
+	fill(random([coloring.color1,coloring.color2,coloring.color3]))
 	rect(100,100,1000,1000)
 	//put drawing code here
 
@@ -41,14 +63,14 @@ function draw() {
 
 
 
-//	carve2(x,y,shapesize,1)
-//	carve2(x,y,shapesize,1)
-//	carve2(x,y,shapesize)
+	carve2(x,y,shapesize,1)
+	carve2(x,y,shapesize,1)
+	carve2(x,y,shapesize)
 
 
 
 	noLoop()
-	//	save("singlecurve")
+//	save("ggonewrong")
 
 }
 
@@ -101,15 +123,15 @@ function carve(){
 	dice=random(0,1)
 	if (dice<0.95){
 		noFill()
-		stroke(255)
+		stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 	}
 	else if (dice>0.999995){
-		fill(255)
+		fill(random([coloring.color1,coloring.color2,coloring.color3]))
 		noStroke();
 	}
 	else {
-		fill(0)
-		stroke(255)
+		fill(random([coloring.color1,coloring.color2,coloring.color3]))
+		stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 	}
 
 	//vertex(100,100)
@@ -118,7 +140,7 @@ function carve(){
 	let dice2=random(0,1)
 	let shapesize=random(30,700);
 	let stepsize=random(0.1,0.5);
-	stroke(255)
+	stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 	for (k=0;k<50+random(1050,35000);k+=1+random(0,3)) {
 		strokeWeight(0.1+random(0,0.5))
 
@@ -137,28 +159,28 @@ function carve(){
 
 			//draw shapes
 			if (dice2>0.50){
-				stroke(255)
+				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				noFill()
 				rect(x,y,shapesize,shapesize)
 				vertex(x, y)
 			}
 			else if (dice2<0.20 && dice2>0.185){
-				stroke(0)
-				fill(255)
+				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
+				fill(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	ellipse(x,y,shapesize,shapesize)
 				rect(x,y,shapesize,shapesize)
 				vertex(x, y)
 
 			}
 			else if (dice2<0.30 && dice2>0.265){
-				stroke(255)
+				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	fill(255)
-				fill(0)
+				fill(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	ellipse(x,y,shapesize,shapesize)
 				rect(x,y,shapesize,random(1,1)*shapesize)
 			}
 			else if (dice2<0.32){
-				stroke(255)
+				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				//				fill(0)
 				noFill()
 
@@ -168,7 +190,7 @@ function carve(){
 			}
 			else {
 				//	noFill()
-				stroke(0)
+				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				//fill(0)
 				noFill()
 				rect(x,y,random(1,1)*shapesize,shapesize)
@@ -341,8 +363,11 @@ print(x,y)
 
 
 			//main curve
-			stroke(0)
-			noFill()
+			stroke(random([coloring2.color1,coloring2.color2,coloring2.color3])
+)
+// 			fill(random([coloring2.color1,coloring2.color2,coloring2.color3])
+// )
+noFill()
 			//	ellipse(x,y,shapesize,shapesize)
 			rect(x,y,shapesize,random(1,1)*shapesize)
 
