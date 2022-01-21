@@ -19,28 +19,28 @@ function setup() {
 	//	print('num_rows'+ num_rows)
 
 
-// coloring={
-// 	color1: '#bfb8c2',
-// 	color2: '#d0dbd8',
-// 	color3: '#c2740c',
-// }
-//
-// coloring2={
-// 	color1:'#514059',
-// 	color2:'#474059',
-// 	color3:'#404759'
-// }
 coloring={
-	color1: '#232926',
-	color2: '#2d3c66',
-	color3: '#a3848c',
+	color1: '#bfb8c2',
+	color2: '#d0dbd8',
+	color3: '#c2740c',
 }
 
 coloring2={
-	color1:'#a3848c',
-	color2:'#a3848c',
-	color3:'#a3848c'
+	color1:'#514059',
+	color2:'#474059',
+	color3:'#404759'
 }
+// coloring={
+// 	color1: '#232926',
+// 	color2: '#2d3c66',
+// 	color3: '#a3848c',
+// }
+//
+// coloring2={
+// 	color1:'#a3848c',
+// 	color2:'#a3848c',
+// 	color3:'#a3848c'
+// }
 
 }
 
@@ -52,25 +52,97 @@ function draw() {
 	rect(100,100,1000,1000)
 	//put drawing code here
 
-	for (let k=0;k<80;k++){
+	for (let k=0;k<30;k++){
 
 		carve()
 	//print(k)
 	}
-	let	x = 100+random(-200,200)
-	let y = 100+random(-200,200)
-	let shapesize=random(230,400);
+	let	x = 600//+random(-200,200)
+	let y = 600//+random(-200,200)
+	let shapesize=random(23,40);
 
 
 
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize)
 
 
+	 // 	x = 100//+random(-200,200)
+ 	 // y = 100//+random(-200,200)
+ 	 // shapesize=random(230,400);
+	 //
+
+	 for (let k=0;k<12;k++){
+		 if (random(0,1)<0.3){
+			 x = 100+random(200,500)
+		   y = 100+random(200,500)
+		   shapesize=random(23,40);
+		 }
+		 if(random(0,1)<0.3){
+		 carve2(x,y,shapesize,0)
+	 } else {
+		 carve2(x,y,shapesize,1)
+	 }
+	 }
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+	 // carve2(x,y,shapesize,1)
+
+
+
+	//   x = 300//+random(200,500)
+	//  y = 100//+random(200,500)
+	//  shapesize=random(23,40);
+ //
+	//  carve2(x,y,shapesize,0)
+	//  //carve2(x,y,shapesize,0)
+ //
+	//  x = 100//+random(200,500)
+	// y = 200//+random(200,500)
+	// shapesize=random(23,40);
+	//  carve2(x,y,shapesize,0)
+	// // carve2(x,y,shapesize,0)
+ //
+	// x = 50//+random(200,500)
+ // y = 300//+random(200,500)
+ // shapesize=random(23,40);
+ //  carve2(x,y,shapesize,0)
+ //
+	// x = 200//+random(200,500)
+ // y = 100//+random(200,500)
+ // shapesize=random(23,40);
+	// carve2(x,y,shapesize,0)
+ //
+	// x = 400//+random(200,500)
+ // y = 100//+random(200,500)
+ // shapesize=random(23,40);
+	// carve2(x,y,shapesize,0)
+ //
+	// x = 600//+random(200,500)
+ // y = 100//+random(200,500)
+ // shapesize=random(23,40);
+	// carve2(x,y,shapesize,0)
+ //
+	// x = 800//+random(200,500)
+ // y = 100//+random(200,500)
+ // shapesize=random(23,40);
+	// carve2(x,y,shapesize,0)
+ //
+ //
+	// x = 100//+random(200,500)
+ // y = 500//+random(200,500)
+ // shapesize=random(23,40);
+	// carve2(x,y,shapesize,0)
 
 	noLoop()
-//	save("ggonewrong")
+	//save("combine2")
 
 }
 
@@ -126,11 +198,11 @@ function carve(){
 		stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 	}
 	else if (dice>0.999995){
-		fill(random([coloring.color1,coloring.color2,coloring.color3]))
+		//fill(random([coloring.color1,coloring.color2,coloring.color3]))
 		noStroke();
 	}
 	else {
-		fill(random([coloring.color1,coloring.color2,coloring.color3]))
+		//fill(random([coloring.color1,coloring.color2,coloring.color3]))
 		stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 	}
 
@@ -166,7 +238,7 @@ function carve(){
 			}
 			else if (dice2<0.20 && dice2>0.185){
 				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
-				fill(random([coloring.color1,coloring.color2,coloring.color3]))
+				//fill(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	ellipse(x,y,shapesize,shapesize)
 				rect(x,y,shapesize,shapesize)
 				vertex(x, y)
@@ -175,11 +247,11 @@ function carve(){
 			else if (dice2<0.30 && dice2>0.265){
 				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	fill(255)
-				fill(random([coloring.color1,coloring.color2,coloring.color3]))
+			//	fill(random([coloring.color1,coloring.color2,coloring.color3]))
 				//	ellipse(x,y,shapesize,shapesize)
 				rect(x,y,shapesize,random(1,1)*shapesize)
 			}
-			else if (dice2<0.32){
+			else if (dice2<0.62){
 				stroke(random([coloring.color1,coloring.color2,coloring.color3]))
 				//				fill(0)
 				noFill()
