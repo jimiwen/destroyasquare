@@ -19,31 +19,41 @@ function setup() {
 	//	print('num_rows'+ num_rows)
 
 
-coloring={
-	color1: '#b9c2b8',
-	color2: '#d0dbd8',
-	color3: '#d68c2b',
-}
+	coloring={
+		color1: '#b9c2b8',
+		color2: '#d0dbd8',
+		color3: '#debe95',
+	}
 
-coloring2={
-	color1:'#514059',
-	color2:'#474059',
-	color3:'#404759',
-	color4:'#404759',
-	color5:'#474059',
-	color6:'#514059'
-}
-// coloring={
-// 	color1: '#232926',
-// 	color2: '#2d3c66',
-// 	color3: '#a3848c',
-// }
-//
-// coloring2={
-// 	color1:'#a3848c',
-// 	color2:'#a3848c',
-// 	color3:'#a3848c'
-// }
+	coloring2={
+		color1:'#514059',
+		color2:'#474059',
+		color3:'#404759',
+		color4:'#404759',
+		color5:'#474059',
+		color6:'#514059'
+	}
+
+
+	coloring3={
+		color1:'#514059',
+		color2:'#b85182',
+		color3:'#404759',
+		color4:'#404759',
+		color5:'#474059',
+		color6:'#514059'
+	}
+	// coloring={
+	// 	color1: '#232926',
+	// 	color2: '#2d3c66',
+	// 	color3: '#a3848c',
+	// }
+	//
+	// coloring2={
+	// 	color1:'#a3848c',
+	// 	color2:'#a3848c',
+	// 	color3:'#a3848c'
+	// }
 
 }
 
@@ -55,103 +65,103 @@ function draw() {
 	rect(100,100,1000,1000)
 	//put drawing code here
 
-	// for (let k=0;k<100;k++){
-	//
-	// 	carve()
-	// //print(k)
-	// }
+	for (let k=0;k<50;k++){
+
+		carve()
+	//print(k)
+	}
 
 
 	let	x = 600+random(-200,200)
 	let y = 600+random(-200,200)
-	let shapesize=random(110,1000);
+	let shapesize=random(110,600);
 
 
 
 
 
-	 // 	x = 100//+random(-200,200)
- 	 // y = 100//+random(-200,200)
- 	 // shapesize=random(230,400);
-	 //
+	// 	x = 100//+random(-200,200)
+	// y = 100//+random(-200,200)
+	// shapesize=random(230,400);
+	//
 
-	 for (let k=0;k<12;k++){
-		 if (random(0,1)<0.5){
-			 x = 100+random(200,500)
-		   y = 100+random(200,500)
-		   shapesize=random(23,40);
-		 }
-		 if(random(0,1)<0.3){
-		 carve2(x,y,shapesize,0)
-	 } else {
-		 carve2(x,y,shapesize,1)
-	 }
-	 }
+	for (let k=0;k<12;k++){
+		if (random(0,1)<0.3){
+			x = 100+random(200,500)
+			y = 100+random(200,500)
+			shapesize=random(23,40);
+		}
+		if(random(0,1)<0.3){
+			carve2(x,y,shapesize,0)
+		} else {
+			carve2(x,y,shapesize,1)
+		}
+	}
 
 
-	 carve2(x,y,shapesize,1)
-	 carve2(x,y,shapesize,1)
-   carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
-	 // carve2(x,y,shapesize,1)
+	carve2(x,y,shapesize,1)
+	carve2(x,y,shapesize,1)
+	carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
 
 
 
 	//   x = 300//+random(200,500)
 	//  y = 100//+random(200,500)
 	//  shapesize=random(23,40);
- //
+	//
 	//  carve2(x,y,shapesize,0)
 	//  //carve2(x,y,shapesize,0)
- //
+	//
 	//  x = 100//+random(200,500)
 	// y = 200//+random(200,500)
 	// shapesize=random(23,40);
 	//  carve2(x,y,shapesize,0)
 	// // carve2(x,y,shapesize,0)
- //
+	//
 	// x = 50//+random(200,500)
- // y = 300//+random(200,500)
- // shapesize=random(23,40);
- //  carve2(x,y,shapesize,0)
- //
+	// y = 300//+random(200,500)
+	// shapesize=random(23,40);
+	//  carve2(x,y,shapesize,0)
+	//
 	// x = 200//+random(200,500)
- // y = 100//+random(200,500)
- // shapesize=random(23,40);
+	// y = 100//+random(200,500)
+	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
- //
+	//
 	// x = 400//+random(200,500)
- // y = 100//+random(200,500)
- // shapesize=random(23,40);
+	// y = 100//+random(200,500)
+	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
- //
+	//
 	// x = 600//+random(200,500)
- // y = 100//+random(200,500)
- // shapesize=random(23,40);
+	// y = 100//+random(200,500)
+	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
- //
+	//
 	// x = 800//+random(200,500)
- // y = 100//+random(200,500)
- // shapesize=random(23,40);
+	// y = 100//+random(200,500)
+	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
- //
- //
+	//
+	//
 	// x = 100//+random(200,500)
- // y = 500//+random(200,500)
- // shapesize=random(23,40);
+	// y = 500//+random(200,500)
+	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
 
 	noLoop()
-	//save("combine2")
+//	save("lotus")
 
 }
 
@@ -266,12 +276,12 @@ function carve(){
 			}
 			x = x + x_step+int(random(0,1))
 			y = y + y_step+int(random(0,1))
-		//	rect(x,y,shapesize/(500-k)/500,shapesize)
+			//	rect(x,y,shapesize/(500-k)/500,shapesize)
 			circle(x,y,3)
 		}
 		endShape()
 	}
-//	fill(random([coloring.color1,coloring.color2,coloring.color3]))
+	//	fill(random([coloring.color1,coloring.color2,coloring.color3]))
 	rect(x,y,random(0.01,10)*shapesize,shapesize)
 	noFill()
 }
@@ -343,19 +353,19 @@ function carve2(x,y,shapesize,wiggle){
 	//vertex(100,100)
 	//vertex(1100,1300)
 
-//	let dice2=random(0,1)
+	//	let dice2=random(0,1)
 	let stepsize=random(0.1,0.5);
-//	print("dice2=  "+dice2)
+	//	print("dice2=  "+dice2)
 	let curvelength=random(100,400);
 	//stroke(255)
- //measure balance
- let tl=0
- let tr=0
- let bl=0
- let br=0
- let centrepoint =900
- xtemp=x;
- ytemp=y;
+	//measure balance
+	let tl=0
+	let tr=0
+	let bl=0
+	let br=0
+	let centrepoint =900
+	xtemp=x;
+	ytemp=y;
 
 
 	for (k=0;k<50+curvelength;k+=1+random(0,3)) {
@@ -377,8 +387,8 @@ function carve2(x,y,shapesize,wiggle){
 			//pop()
 			xtemp = xtemp + x_step+int(random(0,1));
 			ytemp = ytemp + y_step+int(random(0,1));
-//      print(xtemp,ytemp)
-      if (xtemp < centrepoint && ytemp < centrepoint){
+			//      print(xtemp,ytemp)
+			if (xtemp < centrepoint && ytemp < centrepoint){
 				tl=tl+1;
 			}
 			else if (xtemp < centrepoint && ytemp > centrepoint){
@@ -392,21 +402,21 @@ function carve2(x,y,shapesize,wiggle){
 			}
 		}
 	}
-// print("tl= "+tl)
-// print("tr= "+tr)
-// print("bl= "+bl)
-// print("br= "+br)
+	// print("tl= "+tl)
+	// print("tr= "+tr)
+	// print("bl= "+bl)
+	// print("br= "+br)
 
 
 
 
-shiftX=wiggle*600*(tl-tr+bl-br)/(tl+tr+bl+br);
-shiftY=wiggle*600*(tl+tr-bl-br)/(tl+tr+bl+br);
-//print(shiftX,shiftY)
-//print(x,y)
-x=x+shiftX;
-y=y+shiftY;
-//print(x,y)
+	shiftX=wiggle*600*(tl-tr+bl-br)/(tl+tr+bl+br);
+	shiftY=wiggle*600*(tl+tr-bl-br)/(tl+tr+bl+br);
+	//print(shiftX,shiftY)
+	//print(x,y)
+	x=x+shiftX;
+	y=y+shiftY;
+	//print(x,y)
 
 	//draw
 	for (k=1;k<50+curvelength;k+=1+random(0,2)) {
@@ -428,38 +438,67 @@ y=y+shiftY;
 
 			//main curve
 			stroke(random([coloring2.color1,coloring2.color2,coloring2.color3])
-)
+		)
 
 
-			//	ellipse(x,y,shapesize,shapesize)
-			fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-			ellipse(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
-			noFill()
-			strokeWeight(0.01+random(0,0.2))
-      ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
-			strokeWeight(0.1+random(0,0.5))
-			x = x + x_step+int(random(0,1))
-			y = y + y_step+int(random(0,1))
-console.log(k)
-		}
-
+		//	ellipse(x,y,shapesize,shapesize)
+		fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+		ellipse(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
+		noFill()
+		strokeWeight(0.01+random(0,0.2))
+		ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
+		strokeWeight(0.1+random(0,0.5))
+		x = x + x_step+int(random(0,1))
+		y = y + y_step+int(random(0,1))
+		console.log(k)
 	}
 
+}
+
+noStroke()
 fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
 ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
-// if (random(0,1)<0.4){
-// fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-// ellipse(x+random(-13,13),y+random(-13,13),shapesize*(50-k)/29+random(-13,13),shapesize*(50-k)/120+random(-13,13))
-// stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]))
-// }
+if (random(0,1)<0.8){
+	fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+	ellipse(x+random(-7,7),y+random(-7,7),shapesize*(50-k)/29+random(-2,5),shapesize*(50-k)/120+random(-1,5))
+	//stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]))
+}
 noFill()
-//
-// for (let f=0;f<16;k+=int(random(1,3))) {
-// 	fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-// 	ellipse(x,y,shapesize*(50-k)/229,shapesize*(50-k)/120)
-// 	noFill();
-// }
+
+if (random(0,1)<0.2){
+	strokeWeight(1)
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	if (random(0,1)<0.8){
+	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+	}
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+
+	//noStroke()
+	if (random(0,1)<0.4){
+	stroke(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+	}
+	ellipse(x,y-30,shapesize*(50-k)/229,shapesize*(50-k)/120)
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	if (random(0,1)<0.3){
+	stroke(random([coloring3.color2,coloring3.color2,coloring3.color2,coloring3.color4,coloring3.color3,coloring3.color6]))
+	}
+	ellipse(x+30,y-40,shapesize*(50-k)/209,shapesize*(50-k)/110)
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	if (random(0,1)<0.8){
+	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+	}
+	ellipse(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	noStroke()
+	ellipse(x+50,y-20,shapesize*(50-k)/209,shapesize*(50-k)/120)
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+
+	//ellipse(x-random(-20,20),y-random(-20,20),shapesize*(50-k)/random(80,130),shapesize*(50-k)/random(140,200))
+
+	noFill();
+
+}
 
 
-	return x,y,shapesize;
+return x,y,shapesize;
 }
