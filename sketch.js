@@ -20,29 +20,45 @@ function setup() {
 
 
 	coloring={
-		color1: '#b9c2b8',
-		color2: '#d0dbd8',
-		color3: '#debe95',
+		color1: '#FFD400',
+		color2: '#F1E9DA',
+		color3: '#2E294E',
 	}
-
+	//lotus color
+	// coloring2={
+	// 	color1:'#514059',
+	// 	color2:'#474059',
+	// 	color3:'#404759',
+	// 	color4:'#404759',
+	// 	color5:'#474059',
+	// 	color6:'#514059'
+	// }
 	coloring2={
-		color1:'#514059',
-		color2:'#474059',
-		color3:'#404759',
-		color4:'#404759',
-		color5:'#474059',
-		color6:'#514059'
+		color1:'#2E294E',
+		color2:'#2E294E',
+		color3:'#541388',
+		color4:'#FFD400',
+		color5:'#FFD400',
+		color6:'#D90368'
 	}
-
 
 	coloring3={
-		color1:'#514059',
-		color2:'#b85182',
-		color3:'#404759',
-		color4:'#404759',
-		color5:'#474059',
-		color6:'#514059'
+		color1:'#2E294E',
+		color2:'#2E294E',
+		color3:'#541388',
+		color4:'#FFD400',
+		color5:'#F1E9DA',
+		color6:'#D90368'
 	}
+	// lotus color
+	// coloring3={
+	// 	color1:'#514059',
+	// 	color2:'#b85182',
+	// 	color3:'#404759',
+	// 	color4:'#404759',
+	// 	color5:'#474059',
+	// 	color6:'#514059'
+	// }
 	// coloring={
 	// 	color1: '#232926',
 	// 	color2: '#2d3c66',
@@ -65,11 +81,7 @@ function draw() {
 	rect(100,100,1000,1000)
 	//put drawing code here
 
-	for (let k=0;k<50;k++){
 
-		carve()
-	//print(k)
-	}
 
 
 	let	x = 600+random(-200,200)
@@ -115,7 +127,11 @@ function draw() {
 	// carve2(x,y,shapesize,1)
 
 
+	for (let k=0;k<50;k++){
 
+		carve()
+		//print(k)
+	}
 	//   x = 300//+random(200,500)
 	//  y = 100//+random(200,500)
 	//  shapesize=random(23,40);
@@ -161,7 +177,7 @@ function draw() {
 	// carve2(x,y,shapesize,0)
 
 	noLoop()
-//	save("lotus")
+	//	save("5colors")
 
 }
 
@@ -419,10 +435,13 @@ function carve2(x,y,shapesize,wiggle){
 	//print(x,y)
 
 	//draw
+	c1=random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]);
+	c2=random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]);
+
 	for (k=1;k<50+curvelength;k+=1+random(0,2)) {
 		strokeWeight(0.1+random(0,0.5))
 
-
+		c_stem =lerpColor(hexToRgb(c1),hexToRgb(c2),k/(50+curvelength));
 		x_offset = x - left_x
 		y_offset = y - top_y
 		if (x_offset<1800 && y_offset< 1800 && x_offset>0 && y_offset>0  ) {
@@ -437,68 +456,94 @@ function carve2(x,y,shapesize,wiggle){
 
 
 			//main curve
-			stroke(random([coloring2.color1,coloring2.color2,coloring2.color3])
-		)
+			stroke(c_stem)
 
 
-		//	ellipse(x,y,shapesize,shapesize)
-		fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-		ellipse(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
-		noFill()
-		strokeWeight(0.01+random(0,0.2))
-		ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
-		strokeWeight(0.1+random(0,0.5))
-		x = x + x_step+int(random(0,1))
-		y = y + y_step+int(random(0,1))
-		console.log(k)
+			fill(c_stem);
+			ellipse(x,y,shapesize,shapesize)
+
+			ellipse(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
+			noFill()
+			strokeWeight(0.01+random(0,0.2))
+			ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
+			strokeWeight(0.1+random(0,0.5))
+			x = x + x_step+int(random(0,1))
+			y = y + y_step+int(random(0,1))
+			//console.log(k)
+		}
+
 	}
 
-}
-
-noStroke()
-fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
-if (random(0,1)<0.8){
-	fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-	ellipse(x+random(-7,7),y+random(-7,7),shapesize*(50-k)/29+random(-2,5),shapesize*(50-k)/120+random(-1,5))
-	//stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]))
-}
-noFill()
-
-if (random(0,1)<0.2){
-	strokeWeight(1)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.8){
-	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
-	}
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-
-	//noStroke()
-	if (random(0,1)<0.4){
-	stroke(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
-	}
-	ellipse(x,y-30,shapesize*(50-k)/229,shapesize*(50-k)/120)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.3){
-	stroke(random([coloring3.color2,coloring3.color2,coloring3.color2,coloring3.color4,coloring3.color3,coloring3.color6]))
-	}
-	ellipse(x+30,y-40,shapesize*(50-k)/209,shapesize*(50-k)/110)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.8){
-	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
-	}
-	ellipse(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
 	noStroke()
-	ellipse(x+50,y-20,shapesize*(50-k)/209,shapesize*(50-k)/120)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
 
-	//ellipse(x-random(-20,20),y-random(-20,20),shapesize*(50-k)/random(80,130),shapesize*(50-k)/random(140,200))
 
-	noFill();
+	//p=50-k;
+	//console.log(p)
+	let p=1;
+	while(p<100){
+		c_leaf =lerpColor(hexToRgb(c1),hexToRgb(c2),p/100);
+		stroke(c_leaf);
+		strokeWeight(shapesize/12)
+		noFill()
+		ellipse(x,y,(p/100)*shapesize*(50-k)/29,(p/100)*shapesize*(50-k)/120)
+		// if (random(0,1)<0.8){
+		// 	fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+		// 		ellipse(x+random(-7,7),y+random(-7,7),shapesize*(50-k)/29+random(-2,5),shapesize*(50-k)/120+random(-1,5))
+		// 	//stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]))
+		// }
+		p=p+1;
+	}
+	noFill()
 
+	if (random(0,1)<0.2){
+		strokeWeight(2)
+		//fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+		if (random(0,1)<0.8){
+			stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+		}
+	//	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+
+		//noStroke()
+		if (random(0,1)<0.8){
+			stroke(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+		}
+		ellipse(x,y-30,shapesize*(50-k)/229,shapesize*(50-k)/120)
+	//	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+		if (random(0,1)<0.8){
+			stroke(random([coloring3.color2,coloring3.color2,coloring3.color2,coloring3.color4,coloring3.color3,coloring3.color6]))
+		}
+		ellipse(x+30,y-40,shapesize*(50-k)/209,shapesize*(50-k)/110)
+	//	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+		if (random(0,1)<0.8){
+			stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+		}
+		ellipse(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
+	//	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	//	noStroke()
+	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+
+		ellipse(x+50,y-20,shapesize*(50-k)/209,shapesize*(50-k)/120)
+//		fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+
+		//ellipse(x-random(-20,20),y-random(-20,20),shapesize*(50-k)/random(80,130),shapesize*(50-k)/random(140,200))
+
+		noFill();
+
+	}
+
+
+	return x,y,shapesize;
 }
 
 
-return x,y,shapesize;
+function hexToRgb(hex) {
+	hex = hex.replace('#', '');
+
+	var bigint = parseInt(hex, 16);
+
+	var r = (bigint >> 16) & 255;
+	var g = (bigint >> 8) & 255;
+	var b = bigint & 255;
+
+	return color(r, g, b);
 }
