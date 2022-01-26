@@ -2,7 +2,7 @@
 
 function setup() {
 	let width =1200
-	let height = 1200
+	let height = 1000
 	createCanvas(width, height);
 	// put setup code here
 	left_x = int(width * -0.5)
@@ -11,8 +11,8 @@ function setup() {
 	bottom_y = int(height * 1.5)
 	resolution = int(width * 0.01)
 	//	print('resolution'+ resolution)
-
-
+rectMode(CENTER)
+angleMode(DEGREES)
 	num_columns = 3*int((right_x - left_x) / resolution)
 	num_rows = 3*int((bottom_y - top_y) / resolution)
 	//	print('num_columns'+ num_columns)
@@ -62,14 +62,14 @@ function draw() {
 	// fill(0)
 	// rect(0,0,1199,1199)
 	fill(random([coloring.color1,coloring.color2,coloring.color3]))
-	rect(100,100,1000,1000)
+	rect(600,500,1000,800)
 	//put drawing code here
 
-	for (let k=0;k<50;k++){
-
-		carve()
-	//print(k)
-	}
+	// for (let k=0;k<50;k++){
+	//
+	// 	carve()
+	// //print(k)
+	// }
 
 
 	let	x = 600+random(-200,200)
@@ -85,23 +85,23 @@ function draw() {
 	// shapesize=random(230,400);
 	//
 
-	for (let k=0;k<12;k++){
-		if (random(0,1)<0.3){
-			x = 100+random(200,500)
-			y = 100+random(200,500)
-			shapesize=random(23,40);
-		}
-		if(random(0,1)<0.3){
-			carve2(x,y,shapesize,0)
-		} else {
-			carve2(x,y,shapesize,1)
-		}
-	}
+	// for (let k=0;k<12;k++){
+	// 	if (random(0,1)<0.3){
+	// 		x = 100+random(200,500)
+	// 		y = 100+random(200,500)
+	// 		shapesize=random(23,40);
+	// 	}
+	// 	if(random(0,1)<0.3){
+	// 		carve2(x,y,shapesize,0)
+	// 	} else {
+	// 		carve2(x,y,shapesize,1)
+	// 	}
+	// }
 
-
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize,1)
-	carve2(x,y,shapesize,1)
+	//
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
+	// carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
@@ -160,9 +160,72 @@ function draw() {
 	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
 
-	noLoop()
-//	save("lotus")
 
+carve3()
+	noLoop()
+	//save("isometric")
+
+}
+
+function carve3(){
+noFill()
+
+strokeWeight(0.5)
+
+
+		for (k=0;k<150;k+=1){
+			strokeWeight(0.5)
+			stroke(coloring3.color2)
+
+
+			rect(650+cos(30)*150+cos(30)*20+cos(30)*k,600,600-sin(30)*k,50,50)
+rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,50,50)
+
+
+				rect(600+cos(30)*k,600+sin(30)*k,50,50)
+					rect(600+cos(30)*k,600-sin(30)*k,50,50)
+	rect(650+cos(30)*150+cos(30)*20+cos(30)*k/1.8,530-sin(30)*150-sin(30)*20-sin(30)*k/1.8,50,50)
+rect(406+cos(30)*k/1.33,364+sin(30)*k/1.33,50,50)
+		}
+
+for (k=0;k<20;k+=1){
+	strokeWeight(0.5)
+	stroke(coloring3.color6)
+	// rect(450+cos(30)*k,430-sin(30)*k,50,50)
+	// rect(450+cos(30)*k,500-sin(30)*k,50,50)
+	//rect(450+cos(30)*k,570-sin(30)*k,50,50)
+	//	rect(540+cos(30)*k,500-sin(30)*k,50,50)
+			rect(570-cos(30)*k,500-sin(30)*k,50,50)
+				rect(570-cos(30)*k,500+sin(30)*k,50,50)
+
+
+				rect(486+cos(30)*k,430-sin(30)*k,50,50)
+					rect(486+cos(30)*k,430+sin(30)*k,50,50)
+			//		rect(540+cos(30)*k,550+sin(30)*k,50,50)
+
+	//	rect(670+cos(30)*k,500+sin(30)*k,50,50)
+		rect(600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,50,50)
+		rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,50,50)
+		rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,50,50)
+
+
+	//	rect(770+cos(30)*k,400+sin(30)*k,50,50)
+	//	rect(680+cos(30)*150+cos(30)*k,600-sin(30)*150+sin(30)*k,50,50)
+
+}
+
+for (k=0;k<500;k+=1){
+	strokeWeight(0.5)
+	stroke(coloring3.color6)
+	rect(170+cos(30)*k,500+sin(30)*k,50,50)
+	rect(170+cos(30)*k,500-sin(30)*k,50,50)
+	rect(cos(30)*500+170+cos(30)*k,400+350-sin(30)*k,50,50)
+	rect(cos(30)*500+170+cos(30)*500-cos(30)*k,400+350-sin(30)*500-sin(30)*k,50,50)
+	strokeWeight(0.1)
+	stroke(coloring3.color6)
+	rect(170+cos(30)*500,500+sin(30)*500+k/30,50*(500-k)/500,50)
+	rect(170+cos(30)*500,500-sin(30)*500-k/30,50*(500-k)/500,50)
+}
 }
 
 function carve(){
