@@ -79,12 +79,12 @@ function draw() {
 
 
 
-
+	//
 	// 	x = 100//+random(-200,200)
 	// y = 100//+random(-200,200)
 	// shapesize=random(230,400);
 	//
-
+	//
 	// for (let k=0;k<12;k++){
 	// 	if (random(0,1)<0.3){
 	// 		x = 100+random(200,500)
@@ -97,9 +97,9 @@ function draw() {
 	// 		carve2(x,y,shapesize,1)
 	// 	}
 	// }
-
 	//
-	// carve2(x,y,shapesize,1)
+	// //
+	//  carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
 	// carve2(x,y,shapesize,1)
@@ -160,14 +160,31 @@ function draw() {
 	// shapesize=random(23,40);
 	// carve2(x,y,shapesize,0)
 
-
+	angleMode(DEGREES)
+	rectMode(CENTER)
+push()
+translate(random(600,700),random(-450,-250))
+rotate(60)
 carve3()
+pop()
+
+push()
+translate(random(-250,-200),random(500,700))
+rotate(-60)
+carve3()
+pop()
+push()
+translate(random(-50,50),random(-50,50))
+carve3()
+pop()
 	noLoop()
-	//save("isometric")
+	//save("organic")
 
 }
 
 function carve3(){
+angleMode(DEGREES)
+rectMode(CENTER)
 noFill()
 
 strokeWeight(0.5)
@@ -181,29 +198,35 @@ strokeWeight(0.5)
 			rect(650+cos(30)*150+cos(30)*20+cos(30)*k,600,600-sin(30)*k,50,50)
 rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,50,50)
 
-
+	stroke(coloring3.color5)
 				rect(600+cos(30)*k,600+sin(30)*k,50,50)
 					rect(600+cos(30)*k,600-sin(30)*k,50,50)
 	rect(650+cos(30)*150+cos(30)*20+cos(30)*k/1.8,530-sin(30)*150-sin(30)*20-sin(30)*k/1.8,50,50)
 rect(406+cos(30)*k/1.33,364+sin(30)*k/1.33,50,50)
+
 		}
+
+		carve2(600+cos(30)*150,600-sin(30)*150,20,0)
+		angleMode(DEGREES)
+		rectMode(CENTER)
 
 for (k=0;k<20;k+=1){
 	strokeWeight(0.5)
-	stroke(coloring3.color6)
+	stroke(coloring3.color5)
 	// rect(450+cos(30)*k,430-sin(30)*k,50,50)
 	// rect(450+cos(30)*k,500-sin(30)*k,50,50)
 	//rect(450+cos(30)*k,570-sin(30)*k,50,50)
 	//	rect(540+cos(30)*k,500-sin(30)*k,50,50)
+
 			rect(570-cos(30)*k,500-sin(30)*k,50,50)
 				rect(570-cos(30)*k,500+sin(30)*k,50,50)
-
-
 				rect(486+cos(30)*k,430-sin(30)*k,50,50)
-					rect(486+cos(30)*k,430+sin(30)*k,50,50)
+				rect(486+cos(30)*k,430+sin(30)*k,50,50)
+
 			//		rect(540+cos(30)*k,550+sin(30)*k,50,50)
 
 	//	rect(670+cos(30)*k,500+sin(30)*k,50,50)
+
 		rect(600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,50,50)
 		rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,50,50)
 		rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,50,50)
@@ -213,6 +236,15 @@ for (k=0;k<20;k+=1){
 	//	rect(680+cos(30)*150+cos(30)*k,600-sin(30)*150+sin(30)*k,50,50)
 
 }
+//carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150-sin(30)*20,20,0)
+carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
+
+//carve2(486+cos(30)*20,430+sin(30)*20,20,0)
+carve2(486+cos(30)*20,430-sin(30)*20,20,0)
+
+carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+angleMode(DEGREES)
+rectMode(CENTER)
 
 for (k=0;k<500;k+=1){
 	strokeWeight(0.5)
@@ -352,7 +384,8 @@ function carve(){
 
 function carve2(x,y,shapesize,wiggle){
 
-
+angleMode(RADIANS)
+ellipseMode(CORNER)
 
 
 	// initialise field
@@ -505,55 +538,55 @@ function carve2(x,y,shapesize,wiggle){
 
 
 		//	ellipse(x,y,shapesize,shapesize)
-		fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-		ellipse(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
+		stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+		rect(x,y,random(0.4,0.5)*shapesize,random(0.4,0.5)*shapesize)
 		noFill()
 		strokeWeight(0.01+random(0,0.2))
-		ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
+		rect(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
 		strokeWeight(0.1+random(0,0.5))
 		x = x + x_step+int(random(0,1))
 		y = y + y_step+int(random(0,1))
-		console.log(k)
+	//	console.log(k)
 	}
 
 }
 
 noStroke()
-fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-ellipse(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
+fill(random([coloring3.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+rect(x,y,shapesize*(50-k)/29,shapesize*(50-k)/120)
 if (random(0,1)<0.8){
-	fill(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
-	ellipse(x+random(-7,7),y+random(-7,7),shapesize*(50-k)/29+random(-2,5),shapesize*(50-k)/120+random(-1,5))
+	fill(random([coloring3.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]));
+	rect(x+random(-7,7),y+random(-7,7),shapesize*(50-k)/29+random(-2,5),shapesize*(50-k)/120+random(-1,5))
 	//stroke(random([coloring2.color1,coloring2.color2,coloring2.color3,coloring2.color4,coloring2.color5,coloring2.color6]))
 }
 noFill()
 
-if (random(0,1)<0.2){
+if (random(0,1)<0.5){
 	strokeWeight(1)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.8){
-	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color2]));
+	if (random(0,1)<0.5){
+	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color2]))
 	}
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color2,coloring3.color6]));
 
 	//noStroke()
-	if (random(0,1)<0.4){
-	stroke(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
+	if (random(0,1)<0.5){
+	stroke(random([coloring3.color1,coloring3.color2,coloring3.color2,coloring3.color4,coloring3.color3,coloring3.color6]))
 	}
-	ellipse(x,y-30,shapesize*(50-k)/229,shapesize*(50-k)/120)
-	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.3){
+	rect(x,y-30,shapesize*(50-k)/229,shapesize*(50-k)/120)
+	fill(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
+	if (random(0,1)<0.5){
 	stroke(random([coloring3.color2,coloring3.color2,coloring3.color2,coloring3.color4,coloring3.color3,coloring3.color6]))
 	}
-	ellipse(x+30,y-40,shapesize*(50-k)/209,shapesize*(50-k)/110)
+	rect(x+30,y-40,shapesize*(50-k)/209,shapesize*(50-k)/110)
 	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
-	if (random(0,1)<0.8){
+	if (random(0,1)<0.5){
 	stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
 	}
-	ellipse(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
+	rect(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
 	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
 	noStroke()
-	ellipse(x+50,y-20,shapesize*(50-k)/209,shapesize*(50-k)/120)
+	rect(x+50,y-20,shapesize*(50-k)/209,shapesize*(50-k)/120)
 	fill(random([coloring3.color1,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]));
 
 	//ellipse(x-random(-20,20),y-random(-20,20),shapesize*(50-k)/random(80,130),shapesize*(50-k)/random(140,200))
@@ -563,5 +596,5 @@ if (random(0,1)<0.2){
 }
 
 
-return x,y,shapesize;
+//return x,y,shapesize;
 }
